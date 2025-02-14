@@ -12,7 +12,7 @@
 					<div class="top-menu ms-auto">
 						<ul class="align-items-center gap-1 navbar-nav">
 							<li class="d-flex mobile-search-icon d-lg-none nav-item" data-bs-toggle="modal" data-bs-target="#SearchModal">
-								<a class="nav-link" href="avascript:;"><i class='bx bx-search'></i>
+								67<a class="nav-link" href="avascript:;"><i class='bx bx-search'></i>
 								</a>
 							</li>
 							<li class="d-sm-flex d-none dropdown dropdown-laungauge nav-item">

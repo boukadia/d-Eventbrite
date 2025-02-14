@@ -21,6 +21,12 @@
 		<li>
 			<a href="#" class="nav-link" data-page="ManageUsers">Gestion des utilisateurs</a>
 		</li>
+		<li> 
+			<a href="#" class="nav-link" data-page="Statics">Statistics</a>
+		</li>
+		<li>
+			<a href="#" class="nav-link" data-page="ManageCategory">Gestion des Category</a>
+		</li>
 	</ul>
 	<!--end navigation-->
 </div>

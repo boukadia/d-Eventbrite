@@ -45,7 +45,7 @@ if (!$userRole === 'organisateur') {
     </script>
 		<!--start page wrapper -->
 		<div class="page-wrapper">
-			<div class="page-content">
+			<div class="page-content"  >
 				<!--end row-->
 				<div class="card radius-10" id="content">
 				</div>
@@ -90,5 +90,103 @@ if (!$userRole === 'organisateur') {
 </body>
 
 </html>
+you dont get it this page return this page inside of the body : 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
 
+    <h2>Manage Events</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Organizer ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="eventTableBody">
+         </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            fetchEvents();
+        });
+
+        function fetchEvents() {
+            $.ajax({
+                url: "/admin/events",  
+                type: "GET",
+                dataType: "json",
+                success: function(events) {
+                    let rows = "";
+                    events.forEach(event => {
+                        rows += `
+                            <tr>
+                                <td>${event.id}</td>
+                                <td>${event.organizer_id}</td>
+                                <td>${event.title}</td>
+                                <td>${event.description}</td>
+                                <td>${event.location}</td>
+                                <td>${event.date}</td>
+                                <td>${event.price}</td>
+                                <td>${event.status}</td>
+                                <td>${event.created_at}</td>
+                                <td>
+                                    <a href='event_details.php?id=${event.id}'>Details</a> | 
+                                    <a href='#' onclick='validateEvent(${event.id})'>Validate</a> | 
+                                    <a href='#' onclick='deleteEvent(${event.id})'>Delete</a>
+                                </td>
+                            </tr>`;
+                    });
+                    $("#eventTableBody").html(rows);
+                },
+                error: function() {
+                    alert("Error fetching events.");
+                }
+            });
+        }
+
+        function validateEvent(eventId) {
+            $.ajax({
+                url: `/admin/events/${eventId}/validate`,
+                type: "POST",
+                success: function(response) {
+                    alert(response.message);
+                    fetchEvents();
+                }
+            });
+        }
+
+        function deleteEvent(eventId) {
+            if (!confirm("Are you sure you want to delete this event?")) return;
+            $.ajax({
+                url: `/admin/events/${eventId}/delete`,
+                type: "POST",
+                success: function(response) {
+                    alert(response.message);
+                    fetchEvents();
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+ 
  

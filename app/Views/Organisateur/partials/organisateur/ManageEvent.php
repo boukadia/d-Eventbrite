@@ -26,9 +26,7 @@
                     </thead>
                     <tbody>
                         <?php foreach ($events as $key => $value) { ?>
-                            <tr>
-                                <td><?= $value['id'] ?></td>
-                                <td>
+                            <tr>                                <td>
                                     <div class="d-flex align-items-center">
                                         <div class="recent-product-img">
                                             <img src="assets/images/icons/chair.png" alt="">
