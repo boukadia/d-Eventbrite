@@ -56,7 +56,10 @@ class EventController extends Controller
                 'location' => $request['data']['location'],
                 'date' => $request['data']['date'],
                 'price' => $request['data']['price'],
-                'image' => $request['data']['image'],
+                'event_image' => $request['data']['event_image'],
+                'category_id' => $request['data']['category'],
+                'start_time' => $request['data']['start_time'],
+                'end_time' => $request['data']['end_time'],
                 'description' => $request['data']['description'],
             ];
             
@@ -67,6 +70,4 @@ class EventController extends Controller
         $id = $request['id'];
         parent::delete($id);
     }
-
- 
 }

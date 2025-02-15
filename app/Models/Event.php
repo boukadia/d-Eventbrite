@@ -17,14 +17,10 @@ class Event extends Model
 
     public function create(array $request)
     {
-        try {
+    
             parent::create($request);
 
-            return true;
-        } catch (\Exception $e) {
-            $this->db->rollBack();
-            throw $e;
-        }
+       
     }
 
 }
