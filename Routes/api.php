@@ -2,10 +2,15 @@
 use App\Core\Routes;
 use App\Controllers\EventController;
 use App\Controllers\AjaxController;
+<<<<<<< HEAD
 use App\Controllers\AuthController;
 use App\Controllers\UserController;
 use App\Controllers\CategoryController;
 use App\Controllers\StaticsController;
+=======
+use App\Controllers\VilleController;
+use App\Controllers\CategoryController;
+>>>>>>> feature-M-events-organisateur
 
 use App\Models\AdminEventModel;
 $router = new Routes();
@@ -38,9 +43,20 @@ $router->post('/admin/users/update-role', [$userController::class, 'updateUserRo
 
 $router->get('/ajax/load_page', [AjaxController::class, 'loadPage']);
 
+<<<<<<< HEAD
  $router->post('/addCategory', [$CategoryController, 'addCategory']);
 $router->post('/deleteCategory', [$CategoryController, 'deleteCategory']);
 $router->get('/getAllCategories', [$CategoryController, 'getAllCategories']);
+=======
+$router->get('/events', [EventController::class, 'getAll']);
+$router->post('/addEvent', [EventController::class, 'create']);
+$router->get('/deleteEvent', [EventController::class, 'remove']);
+$router->get('/editeEvent', [EventController::class, 'edite']);
+$router->post('/updateEvent', [EventController::class, 'updateEvent']);
+
+$router->get('/villes', [VilleController::class, 'getAll']);
+$router->get('/categories', [CategoryController::class, 'getAll']);
+>>>>>>> feature-M-events-organisateur
 
 $router->get('/getEventStats', [$StaticsController, 'getEventStats']);
 

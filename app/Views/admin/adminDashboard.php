@@ -7,7 +7,8 @@ if (!$userRole === 'admin') {
     header("Location: /login");
 }
 
-?>   -->
+?>   
+ -->
 <?php include __DIR__ . "/../parties/_headerOrganisateur.php" ?>
 
 <body class="bg-theme bg-theme16">

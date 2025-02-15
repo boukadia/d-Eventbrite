@@ -40,7 +40,7 @@ class AuthService {
     
     public static function validateToken($jwt) { 
         try { 
-            $secretKey = Config::get('JWT_SECRET'); 
+             $secretKey = Config::get('JWT_SECRET');
             $algorithm = Config::get('JWT_ALGORITHM');
 
             $decoded = JWT::decode($jwt, new Key($secretKey, $algorithm)); 

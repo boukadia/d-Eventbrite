@@ -24,8 +24,9 @@ class AuthController {
     
             if ($user) {
                 $role = $user['role'];
-                echo $role;
-                $userData = ['email' => $email, 'role' => $role];
+                $userid = $user['id'];
+                echo $userid;
+                $userData = ['email' => $email, 'role' => $role, 'userid' => $userid];
                 $jwt = AuthService::createToken($userData);
     
                  setcookie("jwt", $jwt, time() + 3600, "/", "", false, true);  
@@ -51,7 +52,7 @@ class AuthController {
             $password = $_POST['password'];
             $name = $_POST['name'];
             $role = $_POST['role'];
-            // echo $role;
+ 
              $existingUser = $this->userModel->getUserByUsername($email);
             if ($existingUser) {
                 echo json_encode(['message' => 'Username already taken.']);

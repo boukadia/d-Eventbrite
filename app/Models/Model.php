@@ -4,21 +4,25 @@ namespace App\Models;
 use App\Core\Database;
 use PDO;
 
-abstract class Model {
+abstract class Model
+{
     protected $db;
     protected $table;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = Database::connection();
     }
 
-    public function all() {
+    public function all()
+    {
         $query = "SELECT * FROM {$this->table}";
         $stmt = $this->db->query($query);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function find($id) {
+    public function find($id)
+    {
         $query = "SELECT * FROM {$this->table} WHERE id = :id LIMIT 1";
         $stmt = $this->db->prepare($query);
         $stmt->execute(['id' => $id]);
@@ -26,7 +30,8 @@ abstract class Model {
         return $result ?: null;
     }
 
-    public function create(array $data) {
+    public function create(array $data)
+    {
         $columns = implode(', ', array_keys($data));
         $placeholders = ':' . implode(', :', array_keys($data));
         $query = "INSERT INTO {$this->table} ($columns) VALUES ($placeholders)";
@@ -34,14 +39,16 @@ abstract class Model {
         return $stmt->execute($data);
     }
 
-    public function update(array $data) {
+    public function update($id, array $data) {
         $fields = implode(', ', array_map(fn($key) => "$key = :$key", array_keys($data)));
         $query = "UPDATE {$this->table} SET $fields WHERE id = :id";
         $stmt = $this->db->prepare($query);
+        $data['id'] = $id;
         return $stmt->execute($data);
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $query = "DELETE FROM {$this->table} WHERE id = :id";
         $stmt = $this->db->prepare($query);
         return $stmt->execute(['id' => $id]);

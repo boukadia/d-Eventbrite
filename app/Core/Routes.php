@@ -2,8 +2,6 @@
 
 namespace App\Core;
 
-use App\Controllers\EventController;
-
 
 class Routes
 {
@@ -40,16 +38,16 @@ class Routes
         $path = parse_url($uri, PHP_URL_PATH);
         $queryParams = [];
         $queryString = parse_url($uri, PHP_URL_QUERY);
-
+        
         if (!is_null($queryString)) {
             parse_str($queryString, $queryParams);
         }
-
+        
         $bodyParams = [];
         if (in_array($method, ['POST', 'PUT'])) {
             $bodyParams = json_decode(file_get_contents('php://input'), true) ?? [];
         }
-
+        
         $request = array_merge($queryParams, $bodyParams);
 
         

@@ -1,69 +1,72 @@
 <?php
 
 namespace App\Controllers;
+use App\Controllers\Controller;
+use App\Core\AuthService;
+use App\Models\Event;
 
-use App\Models\AdminEventModel;
 
-class EventController {
-    private $adminEventModel;
+class EventController extends Controller
+{
 
     public function __construct() {
-        $this->adminEventModel = new AdminEventModel();
+        $this->model = new Event();
     }
-    public function index(){
-        include_once __DIR__ . "/../Views/homePage.php";
+    public function index() {
+        $events = $this->model->getAll();
+        require __DIR__ . "/../Views/homePage.php";
     }
-     public function getAllEvents() {
-        $events = $this->adminEventModel->getAllEvents();
-        echo json_encode($events);
+
+    public function organisateur(){
+        $events = $this->model->getAll();
+        require __DIR__ . "/../Views/Organisateur/OrgDashboard.php";
     }
-    public function validateEvent() {
+
+    public function create($request){
+
+        $userData = AuthService::isAuthenticated();
+        
+        $request = [
+                'title' => $request['data']['title'],
+                'location' => $request['data']['location'],
+                'date' => $request['data']['date'],
+                'price' => $request['data']['price'],
+                'event_image' => $request['data']['event_image'],
+                'category_id' => $request['data']['category'],
+                'start_time' => $request['data']['start_time'],
+                'end_time' => $request['data']['end_time'],
+                'organizer_id' => $userData['userid'],
+                'description' => $request['data']['description'],
+            ];
+            
+            parent::create($request);
+    }
+    
+    public function edite($request) {
+        $id = $request['id'];
+        parent::edite($id);
+    }
+
+    public function updateEvent($request){
+
+       $id = $request['id'];
+        
+        $request = [
+                'title' => $request['data']['title'],
+                'location' => $request['data']['location'],
+                'date' => $request['data']['date'],
+                'price' => $request['data']['price'],
+                'image' => $request['data']['image'],
+                'description' => $request['data']['description'],
+            ];
+            
+            parent::update($id, $request);
+    }
+
+    public function remove($request) {
+        $id = $request['id'];
+        parent::delete($id);
+    }
+
  
-         if (!isset($_POST['eventId'])) {
-             echo json_encode(['success' => false, 'message' => 'Event ID is missing.']);
-            return;
-        }
-    
-        $eventId = $_POST['eventId'];
-         $success = $this->adminEventModel->validateEvent($eventId);
-            echo json_encode([
-            'success' => $success,
-            'message' => $success ? 'Event validated successfully!' : 'Failed to validate event.'
-        ]);
-        // $events = $_GET['page'];
-        // echo json_encode($events);
-    }
-     public function refuseEvent() {
-        $eventId = $_POST['eventId'];
-        $success = $this->adminEventModel->refuseEvent($eventId);
-        echo json_encode(['success' => $success, 'message' => $success ? 'Event refused successfully!' : 'Failed to refuse event.']);
-
-    }
-
-     public function deleteEvent() {
-        $eventId = $_POST['eventId'];
-
-        $success = $this->adminEventModel->deleteEvent($eventId);
-        echo json_encode(['success' => $success, 'message' => $success ? 'Event deleted successfully!' : 'Failed to delete event.']);
-    }
-    public function updateEvent() {
-         if (!isset($_POST['eventId']) || !isset($_POST['title']) || !isset($_POST['description']) || !isset($_POST['location']) || !isset($_POST['date']) || !isset($_POST['price'])) {
-            echo json_encode(['success' => false, 'message' => 'Missing required fields.']);
-            return;
-        }
-    
-         $eventId = $_POST['eventId'];
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $location = $_POST['location'];
-        $date = $_POST['date'];
-        $price = $_POST['price'];
-    
-         $success = $this->adminEventModel->updateEvent($eventId, $title, $description, $location, $date, $price);
-    
-         echo json_encode([
-            'success' => $success,
-            'message' => $success ? 'Event updated successfully!' : 'Failed to update event.'
-        ]);
-    }
 }

@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Core\AuthService;
 use App\Models\Event;
 
-class AjaxController {
+class AjaxController extends Controller {
     public function loadPage() {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -15,6 +15,7 @@ class AjaxController {
         if (in_array($page, $allowedPages)) {
             $event = new Event();
             $events = $event->getAll();
+            $villes = 
             include __DIR__ . "/../Views/Organisateur/partials/organisateur/{$page}.php";
             } else {
             echo "<h3>Page not found</h3>";
