@@ -61,10 +61,10 @@
         url: "/admin/events",
         type: "GET",
         dataType: "json",
-        success: function(events) {
-          console.log(events);
+        success: function(data) {
+          console.log(data);
             let rows = "";
-            events.forEach(event => {
+            data.forEach(event => {
               console.log("Event Data:", event);  
               console.log("Event ID (eventsid):", event.eventsid);  
                  rows += `

@@ -46,9 +46,7 @@
             type: 'POST',
             data: { category_id: categoryId },
             success: function(response) {
-                const result = JSON.parse(response);
-                console.log("result category", result);
-                if (result) {
+                 if (response.message) {
                     showMessage('Category deleted sucesssssss', 'green');
                     fetchCategories(); 
                 } else {
@@ -73,9 +71,9 @@
                 type: 'POST',
                 data: { category_name: categoryName },
                 success: function(response) {
-                    const result = JSON.parse(response);
-                    console.log("result", result);
-                    if (result) {
+                    // const result = JSON.parse(response);
+                    console.log(response);
+                     if (response.message) {
                         showMessage('Category added sucesssssssssssssss', 'green');
                         fetchCategories();
                         $('#category_name').val(''); 
@@ -93,10 +91,10 @@
             $.ajax({
                 url: '/getAllCategories',
                 type: 'GET',
-                success: function(response) {
-                    const categories = JSON.parse(response);
+                success: function(data) {
+                    // const categories = JSON.parse(response);
                     let html = '';
-                    categories.forEach(category => {
+                    data.forEach(category => {
                         html += `
                             <li class="flex justify-between items-center p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-200">
                                 <span class="text-gray-200 font-medium">${category.name}</span>

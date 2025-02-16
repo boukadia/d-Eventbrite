@@ -3,20 +3,21 @@
 namespace App\Controllers;
 
 use App\Models\AdminEventModel;
+use App\Models\Event;
 
-class EventAdminController {
+class EventAdminController extends Controller{
     private $adminEventModel;
-
+    public $model;
     public function __construct() {
         $this->adminEventModel = new AdminEventModel();
+        $this->model = new Event();
     }
     public function index(){
         include_once __DIR__ . "/../Views/homePage.php";
     }
      public function getAllEvents() {
-        $events = $this->adminEventModel->getAllEvents();
-        echo json_encode($events);
-    }
+         parent::getAll();
+     }
     public function validateEvent() {
  
          if (!isset($_POST['eventId'])) {
