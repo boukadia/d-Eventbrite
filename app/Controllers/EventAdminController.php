@@ -16,7 +16,10 @@ class EventAdminController extends Controller{
         include_once __DIR__ . "/../Views/homePage.php";
     }
      public function getAllEvents() {
-         parent::getAll();
+        //  parent::getAll();
+         $data = $this->adminEventModel->getAllEvents();
+         echo json_encode($data);
+
      }
     public function validateEvent() {
  

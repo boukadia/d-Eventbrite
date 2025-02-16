@@ -25,7 +25,7 @@ class AdminEventModel extends AbstractEventModel {
     }
 
      public function getAllEvents(): array {
-        $sql = "SELECT *,e.id as eventsid , u.name AS organizername , u.id AS userID FROM events e
+        $sql = "SELECT *,e.id as eventsid , u.name AS organizername , u.id AS userID , e.status AS eventsstatus FROM events e
                 INNER JOIN users u ON e.organizer_id = u.id 
 ";
         $stmt = $this->db->prepare($sql);

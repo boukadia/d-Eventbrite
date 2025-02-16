@@ -9,6 +9,7 @@ use App\Controllers\CategoryController;
 use App\Controllers\UserController;
 use App\Controllers\StaticsController;
 use App\Controllers\EventAdminController;
+use App\Controllers\NotificationsController;
 use App\Models\AdminEventModel;
 
 
@@ -61,8 +62,13 @@ $router->post('/admin/events/delete', [EventAdminController::class, 'deleteEvent
 $router->post('/admin/events/refused', [EventAdminController::class, 'refuseEvent']);
 $router->post('/admin/events/update', [EventAdminController::class, 'updateEvent']);
 
+// notifications routes
+
+$router->get('/admin/getNotifications', [NotificationsController::class, 'getNotifications']);
+$router->post('/admin/markAllreadNotifications', [NotificationsController::class, 'markAsRead']);
+
 $router->get('/ajax/load_page', [AjaxController::class, 'loadPage']);
 
- return $router;
+return $router;
 
  

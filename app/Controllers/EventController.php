@@ -4,13 +4,17 @@ namespace App\Controllers;
 use App\Controllers\Controller;
 use App\Core\AuthService;
 use App\Models\Event;
-
-
+use App\Models\NotificationModel;
+ 
 class EventController extends Controller
 {
-
+public $notificationModel;
+public $AuthService;
     public function __construct() {
         $this->model = new Event();
+        $this->notificationModel = new NotificationModel();
+ 
+
     }
     public function index() {
         $events = $this->model->getAll();
@@ -38,9 +42,25 @@ class EventController extends Controller
                 'organizer_id' => $userData['userid'],
                 'description' => $request['data']['description'],
             ];
+            $organizerName = $userData['username'];
             
+
+            $adminID = $this->notificationModel->getAdminId();
+            $message = "Organizer $organizerName has created a new event: ";
+
+           $this->notificationModel->createNotification($adminID, $message);
+
             parent::create($request);
-    }
+
+           
+            // if ($this->notificationModel->createNotification($admin, "New event created")) {
+            //    echo "Success";
+            // }
+            // else {
+            //     echo "Error";
+            // }
+            // echo json_encode($res);
+        }
     
     public function edite($request) {
         $id = $request['id'];

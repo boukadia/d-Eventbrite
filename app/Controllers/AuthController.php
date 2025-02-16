@@ -25,8 +25,8 @@ class AuthController {
             if ($user) {
                 $role = $user['role'];
                 $userid = $user['id'];
-                echo $userid;
-                $userData = ['email' => $email, 'role' => $role, 'userid' => $userid];
+                $username = $user['name'];
+                $userData = ['email' => $email, 'role' => $role, 'userid' => $useridm , 'username' => $username];
                 $jwt = AuthService::createToken($userData);
     
                  setcookie("jwt", $jwt, time() + 3600, "/", "", false, true);  

@@ -16,7 +16,7 @@ class AdminStaticsModel
 
      public function getTotalEvents(): int
     {
-        $sql = "SELECT COUNT(*) as total FROM events";
+        $sql = "SELECT COUNT(e.id) as total FROM events e WHERE e.status = 'approved'";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
@@ -24,15 +24,15 @@ class AdminStaticsModel
 
      public function getTotalParticipants(): int
     {
-        $sql = "SELECT COUNT(DISTINCT user_id) as total FROM tickets";
+        $sql = "SELECT DISTINCT  COUNT(t.id) as total FROM users t where t.role = 'participant'";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
     }
 
-     public function getTopOrganizers(): array
+     public function getTopOrganizers(): array 
     {
-        $sql = "
+        $sql = " 
             SELECT u.name, COUNT(e.id) as event_count
             FROM users u
             JOIN events e ON u.id = e.organizer_id

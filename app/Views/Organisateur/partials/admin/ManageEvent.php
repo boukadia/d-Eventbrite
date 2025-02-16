@@ -66,20 +66,20 @@
             let rows = "";
             data.forEach(event => {
               console.log("Event Data:", event);  
-              console.log("Event ID (eventsid):", event.eventsid);  
+              console.log("Event ID (eventsid):", event.id);  
                  rows += `
                     <tr class="hover:bg-gray-800">
-                        <td class="py-2 px-4 border-b border-gray-700">${event.eventsid}</td>
+                        <td class="py-2 px-4 border-b border-gray-700">${event.id}</td>
                         <td class="py-2 px-4 border-b border-gray-700">${event.organizername}</td>
                         <td class="py-2 px-4 border-b border-gray-700">${event.title}</td>
                         <td class="py-2 px-4 border-b border-gray-700">${event.description}</td>
                         <td class="py-2 px-4 border-b border-gray-700">${event.location}</td>
                         <td class="py-2 px-4 border-b border-gray-700">${event.date}</td>
                         <td class="py-2 px-4 border-b border-gray-700">${event.price}</td>
-                        <td class="py-2 px-4 border-b border-gray-700">${event.status}</td>
+                        <td class="py-2 px-4 border-b border-gray-700">${event.eventsstatus}</td>
                         <td class="py-2 px-4 border-b border-gray-700">${event.created_at}</td>
                       <td class="py-2 px-4 border-b border-gray-700">
-                        <a href='javascript:void(0);' onclick='validateEvent("${event.eventsid}")' class="text-green-400 hover:text-green-300">Validate</a> | 
+                        <a href='javascript:void(0);' onclick='validateEvent("${event.id}")' class="text-green-400 hover:text-green-300">Validate</a> | 
                         <a href='javascript:void(0);' onclick='refuseEvent(${event.eventsid})' class="text-red-400 hover:text-red-300">Refuse</a> | 
                         <a href='javascript:void(0);' onclick='deleteEvent(${event.eventsid})' class="text-red-400 hover:text-red-300">Delete</a> |
                         <a href='javascript:void(0);' onclick='openEditModal(${event.eventsid}, "${event.title}", "${event.description}", "${event.location}", "${event.date}", ${event.price})' class="text-yellow-400 hover:text-yellow-300">Edit</a>
