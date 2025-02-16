@@ -3,14 +3,15 @@
 namespace App\Controllers;
 use App\Core\AuthService;
 use App\Models\Event;
-
-
+use App\Models\NotificationModel;
+ 
 class EventController extends Controller
 {
-
-    public function __construct()
-    {
+public $notificationModel;
+public $AuthService;
+    public function __construct() {
         $this->model = new Event();
+        $this->notificationModel = new NotificationModel();
     }
     public function index()
     {
@@ -114,6 +115,5 @@ class EventController extends Controller
         $id = $request['id'];
         parent::delete($id);
     }
-
 
 }

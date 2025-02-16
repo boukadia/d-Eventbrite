@@ -63,7 +63,7 @@ if (!$userRole === 'organisateur') {
 		</script>
 		<!--start page wrapper -->
 		<div class="page-wrapper">
-			<div class="page-content">
+			<div class="page-content"  >
 				<!--end row-->
 				<div class="card radius-10" id="content">
 				</div>

@@ -26,7 +26,7 @@ class AuthController {
                 $role = $user['role'];
                 $userid = $user['id'];
                 $username = $user['name'];
-                echo $userid;
+                
                 $userData = ['email' => $email, 'role' => $role, 'userid' => $userid, 'username' => $username];
                 $jwt = AuthService::createToken($userData);
     
@@ -87,7 +87,7 @@ class AuthController {
         } 
         if(AuthService::hasRole('organisateur')) {
             $event = new Event();
-            $events = $event->getAll();
+            $events = $event->getWidthOrganisateur();
             $userData = AuthService::isAuthenticated();
             include __DIR__ . '/../Views/Organisateur/OrgDashboard.php';
         }

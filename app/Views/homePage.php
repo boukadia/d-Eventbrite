@@ -109,7 +109,7 @@
       <div class="widget">
         <div class="vs-widget-about">
           <div class="footer-logo">
-            <a href="index.html"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/logo.svg" ?> alt="Eventino"></a>
+            <a href="index.html"><img src="/assets/img/logo.svg" alt="Eventino"></a>
           </div>
           <p>
             Ut tellus dolor, dapibus eget, elementum ifend cursus eleifend,
@@ -425,7 +425,7 @@
       <!-- <div class="filter-item Art Business col-lg-4 col-md-6 More">
           <div class="event-style1">
             <div class="event-img">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-1.jpg"?> alt="e 1 1">
+              <img src="/assets/img/events/e-1-1.jpg" alt="e 1 1">
               <div class="event-tags">
                 <a href="event-details.html">Business</a>
               </div>

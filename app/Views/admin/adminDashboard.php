@@ -20,27 +20,39 @@ if (!$userRole === 'admin') {
 		<!--start header -->
 		<?php include __DIR__ . "/../parties/_navbarOrganisateur.php" ?>
 		<!--end header -->
-        <script>
-        $(document).ready(function() {
-            $(".nav-link").click(function(e) {
-                e.preventDefault();
-                var page = $(this).data("page");
-
-                $.ajax({
-                    url: "/ajax/load_page",
-                    type: "GET",
-                    data: { page: page },
-                    success: function(response) {
-                        $("#content").html(response);
-                    },
-                    error: function() {
-                        $("#content").html("<h3>Error loading page</h3>");
-                    }
-                });
-            });
+		<script>
+    $(document).ready(function() {
+         $.ajax({
+            url: "/ajax/load_page",
+            type: "GET",
+            data: { page: "ManageEvent" },
+            success: function(response) {
+                $("#content").html(response);
+            },
+            error: function() {
+                $("#content").html("<h3>Error loading page</h3>");
+            }
         });
 
-    </script>
+        $(".nav-link").click(function(e) {
+            e.preventDefault();
+            var page = $(this).data("page");
+
+            $.ajax({
+                url: "/ajax/load_page",
+                type: "GET",
+                data: { page: page },
+                success: function(response) {
+                    $("#content").html(response);
+                },
+                error: function() {
+                    $("#content").html("<h3>Error loading page</h3>");
+                }
+            });
+        });
+    });
+</script>
+
 		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">

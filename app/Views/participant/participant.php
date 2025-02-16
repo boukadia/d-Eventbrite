@@ -10,7 +10,7 @@
   <div class="vs-menu-wrapper">
     <div class="text-center vs-menu-area">
       <div class="mobile-logo">
-        <a href="index.html"><img src="/assets/img/logo-white2.svg" alt="Carmax" class="logo"></a>
+        <a href="index.html"><img src="/../assets/img/logo-white2.svg" alt="Carmax" class="logo"></a>
         <button class="vs-menu-toggle"><i class="fa-times fal"></i></button>
       </div>
       <div class="vs-mobile-menu">
@@ -108,7 +108,7 @@
       <div class="widget">
         <div class="vs-widget-about">
           <div class="footer-logo">
-            <a href="index.html"><img src="/assets/img/logo.svg" ?> alt="Eventino"></a>
+            <a href="index.html"><img src="/../assets/img/logo.svg" ?> alt="Eventino"></a>
           </div>
           <p>
             Ut tellus dolor, dapibus eget, elementum ifend cursus eleifend,
@@ -129,7 +129,7 @@
         <div class="recent-post-wrap">
           <div class="recent-post">
             <div class="media-img">
-              <a href="blog-details.html"><img src="/assets/img/blog/recent-post-1-1.jpg" ?> alt="BlogImage"></a>
+              <a href="blog-details.html"><img src="/../assets/img/blog/recent-post-1-1.jpg" ?> alt="BlogImage"></a>
             </div>
             <div class="media-body">
               <h4 class="post-title">
@@ -203,8 +203,8 @@
       <div>
         <div class="hero-inner style2">
           <div class="overlay"></div>
-          <div class="hero-bg" data-bg-src="/assets/img/bg/h-2-1-1.jpg"></div>
-          <img src="/assets/img/shapes/h-1-1.png" alt="shapes" class="hero-shape1">
+          <div class="hero-bg" data-bg-src="/../assets/img/bg/h-2-1-1.jpg"></div>
+          <img src="/../assets/img/shapes/h-1-1.png" alt="shapes" class="hero-shape1">
           <div class="container">
             <div class="justify-content-between row">
               <div class="mx-auto col-lg-6">
@@ -1181,4 +1181,4 @@
   <!--==============================
         All Js File
     ============================== -->
-<?php include __DIR__ . "/parties/_footer.php" ?>
+<?php include __DIR__ . "/../parties/_footer.php" ?>
