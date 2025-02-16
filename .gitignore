@@ -1,6 +1,6 @@
 /.env
 # test
- vendor/
+/vendor
 composer.lock
 
  cache/
