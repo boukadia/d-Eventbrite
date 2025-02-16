@@ -27,7 +27,7 @@ if (!$userRole === 'organisateur') {
 				$.ajax({
 					url: "/ajax/load_page",
 					type: "GET",
-					data: { page: "ManageEvent" },
+					data: { page: "Statistique" },
 					
 					success: function (response) {
 						$("#content").html(response);
@@ -40,7 +40,7 @@ if (!$userRole === 'organisateur') {
 			});
 
 			$(document).ready(function () {
-				$(".nav-link").click(function (e) {
+				$(".nav-link-side").click(function (e) {
 					e.preventDefault();
 					var page = $(this).data("page");
 

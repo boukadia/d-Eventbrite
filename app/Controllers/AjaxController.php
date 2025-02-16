@@ -9,7 +9,7 @@ class AjaxController extends Controller {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
             
-            $allowedPages = ['ManageEvent', 'ManageUsers', 'profile'];
+            $allowedPages = ['ManageEvent', 'Statistique', 'profile'];
             
         if (AuthService::hasRole('organisateur')) {
         if (in_array($page, $allowedPages)) {

@@ -5,7 +5,7 @@
         <div class="card-body">
             <div class="d-flex justify-between align-items-center">
                 <div>
-                    <h5 class="my-4 text-xl">La liste des Evenementes</h5>
+                    <h5 class="my-4 font-sans text-xl">La liste des Evenementes</h5>
                 </div>
 
                 <div class="right-[0.7rem] bottom-[4.2rem] fixed d-flex order-actions bg-white/25 p-2 px-4 pb-2 rounded-xl cursor-pointer" id="toggleBtn">
@@ -17,11 +17,11 @@
                 <table class="table mb-0 align-middle">
                     <thead class="table-light">
                         <tr>
-                            <th>Ev_id</th>
-                            <th>Evenementes</th>
-                            <th>location</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th class="font-sans">Ev_id</th>
+                            <th class="font-sans">Evenementes</th>
+                            <th class="font-sans">location</th>
+                            <th class="font-sans">Status</th>
+                            <th class="font-sans">Action</th>
                         </tr>
                     </thead>
                     <tbody id="bodyTableEvents">
@@ -35,16 +35,16 @@
                                             <img src=<?= $value['event_image'] ?> alt="">
                                         </div>
                                         <div class="ms-2">
-                                            <h6 class="mb-1 font-14 title-cell"><?= $value['title'] ?></h6>
+                                            <h6 class="mb-1 font-14 font-sans title-cell"><?= $value['title'] ?></h6>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="location-cell"><?= $value['location'] ?></td>
+                                <td class="font-sans location-cell"><?= $value['location'] ?></td>
                                 <td>
                                     <div class="d-flex align-items-center text-white">
                                         <i
                                             class="me-1 font-18 align-middle bx-rotate-90 bx bx-burst bx-radio-circle-marked"></i>
-                                        <span class="status-cell"><?= $value['status'] == "pending" ?  "En attente" : $value['status'] ?></span>
+                                        <span class="font-sans status-cell"><?= $value['status'] == "pending" ?  "En attente" : $value['status'] ?></span>
                                     </div>
                                 </td>
                                 <td>

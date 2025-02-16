@@ -14,13 +14,12 @@
 		<li>
 		<li class="menu-label">UI Elements</li>
 		<li>
-
-			<a href="#" class="nav-link" data-page="ManageEvent">Gestion des événements</a>
-
+			<a href="#" class="nav-link-side" data-page="Statistique">Statistique</a>
 		</li>
 		<li>
-			<a href="#" class="nav-link" data-page="ManageUsers">Gestion des utilisateurs</a>
+			<a href="#" class="nav-link-side" data-page="ManageEvent">Gestion des événements</a>
 		</li>
+		
 	</ul>
 	<!--end navigation-->
 </div>
