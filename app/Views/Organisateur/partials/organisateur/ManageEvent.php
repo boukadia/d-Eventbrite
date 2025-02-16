@@ -39,7 +39,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="font-sans location-cell"><?= $value['location'] ?></td>
+                                <td class="font-sans location-cell"><?= $value['ville'] ?></td>
                                 <td>
                                     <div class="d-flex align-items-center text-white">
                                         <i
@@ -108,7 +108,7 @@
             <div class="row">
                 <div class="mb-2 col-md-12">
                     <label class="form-label">Image :</label>
-                    <input type="file" name="event_image" id="event_image" class="form-control">
+                    <input type="file" required name="event_image" id="event_image" class="form-control">
                 </div>
             </div>
             <div class="form-group">

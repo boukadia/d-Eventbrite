@@ -85,7 +85,8 @@ function populateTable (data, element) {
     if (!row) {
       row = document.createElement('tr')
       row.setAttribute('data-id', item.id)
-
+        console.log(item);
+        
       row.innerHTML = `
             <td class="id-cell">${item.id}</td>
             <td>
@@ -98,7 +99,7 @@ function populateTable (data, element) {
             </div>
             </div>
             </td>
-            <td class="location-cell">${item.location}</td>
+            <td class="location-cell">${item.ville}</td>
             <td>
             <div class="d-flex align-items-center text-white">
             <i class='me-1 font-18 align-middle bx-rotate-90 bx bx-burst bx-radio-circle-marked'></i>
@@ -146,6 +147,9 @@ async function handleEdite (id) {
 
     eventFind = await response.json()
 
+    console.log(eventFind);
+    
+
     populateForm(eventFind)
   } catch (error) {
     console.error(error.message)
@@ -153,10 +157,13 @@ async function handleEdite (id) {
 }
 
 function populateForm (data) {
+ 
   document.getElementById('title').value = data.title
   document.getElementById('date').value = data.date.split(' ')[0]
   document.getElementById('price').value = data.price
   document.getElementById('description').value = data.description
+  document.getElementById('selectCategories').value = data.category_id;
+  document.getElementById('selectLocation').value = data.villes_id;
 
   document.getElementById('start_time').value = data.start_time.split(' ')[0]
   document.getElementById('end_time').value = data.end_time.split(' ')[0]
@@ -211,7 +218,7 @@ $(document).on('click', '#btn-modifier', function (e) {
 function getFormData () {
     let formData = new FormData();
     formData.append("title", document.getElementById("title").value);
-    formData.append("location", document.getElementById("selectLocation").value);
+    formData.append("villes_id", document.getElementById("selectLocation").value);
     formData.append("category", document.getElementById("selectCategories").value);
     formData.append("start_time", document.getElementById("start_time").value);
     formData.append("end_time", document.getElementById("end_time").value);

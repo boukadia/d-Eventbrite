@@ -37,7 +37,7 @@ class EventController extends Controller
 
         $requestData = [
             'title' => $request['title'],
-            'location' => $request['location'],
+            'villes_id' => $request['villes_id'],
             'date' => $request['date'],
             'price' => $request['price'],
             'event_image' => $imagePath,
@@ -96,7 +96,7 @@ class EventController extends Controller
 
         $request = [
             'title' => $request['title'],
-            'location' => $request['location'],
+            'villes_id' => $request['villes_id'],
             'date' => $request['date'],
             'price' => $request['price'],
             'event_image' => $imagePath,

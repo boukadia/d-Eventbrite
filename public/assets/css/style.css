@@ -10806,7 +10806,14 @@ blockquote.vs-quote .quote-author {
 }
 .event-style1 .event-img, .event-style2 .event-img, .event-style3 .event-img {
   position: relative;
+
 }
+
+.event-style1 .event-img img {
+  height: 12rem;
+  object-fit: cover;
+}
+
 .event-style1 .event-tags, .event-style2 .event-tags, .event-style3 .event-tags {
   position: absolute;
   top: 30px;
@@ -10911,14 +10918,14 @@ blockquote.vs-quote .quote-author {
   justify-content: space-between;
 }
 .event-style1 .event-price, .event-style2 .event-price, .event-style3 .event-price {
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 40px;
   gap: 5px;
 }
 @media (max-width: 1399px) {
   .event-style1 .event-price, .event-style2 .event-price, .event-style3 .event-price {
-    font-size: 25px;
+    font-size: 18px;
   }
 }
 @media (max-width: 1199px) {

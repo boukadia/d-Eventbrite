@@ -373,7 +373,7 @@
         <div>
           <div class="filter-menu-active filter-menu1 fadeInUp wow" data-wow-delay="0.3s">
             <button data-filter="*" class="active">All</button>
-            <button data-filter=".Business">Business</button>
+            <button data-filter=".Soirée">Soirée</button>
             <button data-filter=".Art">Art</button>
             <button data-filter=".Education">Education</button>
             <button data-filter=".Sport">Sport</button>
@@ -383,7 +383,46 @@
         </div>
       </div>
       <div class="filter-active2 fadeInUp row wow" data-wow-delay="0.4s">
-        <div class="filter-item Art Business col-lg-4 col-md-6 More">
+      <!-- <?php print_r($events) ?> -->
+      <?php foreach ($events as $event) : ?>
+        <div class="filter-item <?= $event['name'] ?> col-lg-4 col-md-6">
+            <div class="event-style1">
+                <div class="event-img">
+                    <img src="<?= $event['event_image'] ?>" alt="<?= $event['title'] ?>">
+                    <div class="event-tags">
+                        <a href=""><?= $event['name'] ?></a>
+                    </div>
+                    <div class="event-date">
+                        <span><?=  date_create_from_format('Y-m-d H:i:s', $event['date'])->format('d F Y') ?></span>
+                        <!-- <?= $event['month'] ?> -->
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-meta">
+                        <ul>
+                            <li>
+                                <span><i class="fas fa-clock"></i><?= DateTime::createFromFormat('H:i:s', $event['start_time'])->format('H\hi')  ?></span>
+                            </li>
+                            <li>
+                                <span><i class="fa-map-marker-alt fas"></i><?= $event['ville'] ?></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <h3 class="event-title h5">
+                        <a href="#"><?= $event['title'] ?></a>
+                    </h3>
+                    <p class="event-text"><?= $event['description'] ?></p>
+                    <div class="event-footer">
+                        <a href="#" class="event-link">Tickets & Details</a>
+                        <span class="event-price">Price: <span><?= $event['price'] ?>DH</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+      
+      
+      <!-- <div class="filter-item Art Business col-lg-4 col-md-6 More">
           <div class="event-style1">
             <div class="event-img">
               <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-1.jpg"?> alt="e 1 1">
@@ -415,8 +454,10 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="filter-item Art col-lg-4 col-md-6 Education Sport">
+        </div> -->
+
+
+        <!-- <div class="filter-item Art col-lg-4 col-md-6 Education Sport">
           <div class="event-style1">
             <div class="event-img">
               <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-2.jpg"?> alt="e 1 1">
@@ -585,7 +626,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="justify-content-center row">
         <div class="col-auto">

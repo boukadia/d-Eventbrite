@@ -9,14 +9,13 @@ class Event extends Model
 
     public function getAll()
     {
-        $query = "SELECT * FROM events";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
+        $query = "SELECT E.*, V.ville, C.name FROM events AS E JOIN users AS U ON U.id = E.organizer_id JOIN ville AS V ON V.id = E.villes_id JOIN categories AS C ON C.id = E.category_id";
+        $stmt = $this->db->query($query);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function create(array $request)
-    {   
+    {       
         try {
             parent::create($request);
 
