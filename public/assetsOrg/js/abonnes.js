@@ -25,21 +25,21 @@
 //   getDataVilles()
 // }
 
-async function getDataVilles () {
-  const url = '/villes'
-  try {
-    const response = await fetch(url)
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`)
-    }
+// async function getDataVilles () {
+//   const url = '/usersInscriptions'
+//   try {
+//     const response = await fetch(url)
+//     if (!response.ok) {
+//       throw new Error(`Response status: ${response.status}`)
+//     }
 
-    const dataVilles = await response.json()
+//     const dataVilles = await response.json()
 
-    populateSelect(dataVilles)
-  } catch (error) {
-    console.error(error.message)
-  }
-}
+//     populateSelect(dataVilles)
+//   } catch (error) {
+//     console.error(error.message)
+//   }
+// }
 
 // async function getDataCategories () {
 //   const url = '/categories'
@@ -56,31 +56,28 @@ async function getDataVilles () {
 //     console.error(error.message)
 //   }
 // }
+getDatausersInscriptions();
 
-async function getDataEvents () {
-  const url = '/events'
-
-  try {
+async function getDatausersInscriptions () {
+  const url = '/usersUnscriptions'
+//   try {
     const response = await fetch(url)
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`)
     }
 
-    dataEvents = await response.json()
+    data = await response.json()
+    console.log('data_test', data)
 
-    const bodyTableEvents = document.getElementById('bodyTableEvents')
-
-    bodyTableEvents.innerHTML = ''
-
-    populateTable(dataEvents, bodyTableEvents)
-  } catch (error) {
-    console.error(error.message)
-  }
+    populateTableUers(data)
+//   } catch (error) {
+//     console.error(error.message)
+//   }
 }
 
 // function populateTable (data, element) {
 //   data.forEach(item => {
-    
+
 //     let row = document.querySelector(`tr[data-id="${item.id}"]`)
 
 //     if (!row) {
@@ -154,28 +151,28 @@ async function getDataEvents () {
 //   }
 // }
 
-function populateForm (data) {
-  document.getElementById('title').value = data.title
-  document.getElementById('date').value = data.date.split(' ')[0]
-  document.getElementById('price').value = data.price
-  document.getElementById('description').value = data.description
+// function populateForm (data) {
+//   document.getElementById('title').value = data.title
+//   document.getElementById('date').value = data.date.split(' ')[0]
+//   document.getElementById('price').value = data.price
+//   document.getElementById('description').value = data.description
 
-  document.getElementById('start_time').value = data.start_time.split(' ')[0]
-  document.getElementById('end_time').value = data.end_time.split(' ')[0]
+//   document.getElementById('start_time').value = data.start_time.split(' ')[0]
+//   document.getElementById('end_time').value = data.end_time.split(' ')[0]
 
-  let oldButton = document.getElementById('submit')
-  if (oldButton) {
-    let newButton = oldButton.cloneNode(true)
+//   let oldButton = document.getElementById('submit')
+//   if (oldButton) {
+//     let newButton = oldButton.cloneNode(true)
 
-    newButton.id = 'btn-modifier'
-    newButton.className += ' bg-sky-600'
-    newButton.textContent = 'Modifier'
+//     newButton.id = 'btn-modifier'
+//     newButton.className += ' bg-sky-600'
+//     newButton.textContent = 'Modifier'
 
-    oldButton.replaceWith(newButton)
-  }
+//     oldButton.replaceWith(newButton)
+//   }
 
-  togglePopup()
-}
+//   togglePopup()
+// }
 
 // function populateSelect (data) {
 //   const selectElement = document.getElementById('selectLocation')
@@ -258,3 +255,47 @@ function populateForm (data) {
 //     .catch(error => console.error('Error:', error))
 //   togglePopup()
 // }
+
+// Exemple de données (normalement, elles viennent de ton backend)
+
+// Fonction pour créer et insérer les lignes dans la table
+function populateTableUers (data) {
+
+  const tbody = document.getElementById('bodyTableAbonnes')
+//   tbody.innerHTML = '' 
+
+  console.log(tbody);
+  
+
+  data.forEach(data => {
+    const tr = document.createElement('tr')
+    tr.setAttribute('data-id', data.id)
+
+    tr.innerHTML = `
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="recent-product-img">
+            <img src="${data.name}" alt="user Image">
+          </div>
+          <div class="ms-2">
+            <h6 class="mb-1 font-14 title-cell">${data.name}</h6>
+          </div>
+        </div>
+      </td>
+      <td class="location-cell">${data.email}</td>
+      <td>
+        <div class="d-flex align-items-center text-white">
+          <span class="status-cell">${data.title}</span>
+        </div>
+      </td>
+       <td>
+        <div class="d-flex align-items-center text-white">
+          <i class="me-1 font-18 align-middle bx-rotate-90 bx bx-burst bx-radio-circle-marked"></i>
+          <span class="status-cell">${data.ticket_type}</span>
+        </div>
+      </td>
+    `
+
+    tbody.appendChild(tr)
+  })
+}

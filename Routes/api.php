@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\UsersInscriptionController;
 use App\Core\Routes;
 use App\Controllers\EventController;
 use App\Controllers\AuthController;
@@ -42,6 +43,8 @@ $router->post('/updateEvent', [EventController::class, 'updateEvent']);
 
 $router->get('/villes', [VilleController::class, 'getAll']);
 $router->get('/categories', [CategoryController::class, 'getAll']);
+
+$router->get('/usersUnscriptions', [UsersInscriptionController::class, 'getAll']);
 
  return $router;
 

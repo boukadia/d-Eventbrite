@@ -80,12 +80,10 @@ async function getDataEvents () {
 
 function populateTable (data, element) {
   data.forEach(item => {
-    
     let row = document.querySelector(`tr[data-id="${item.id}"]`)
 
     if (!row) {
-
-        row = document.createElement('tr')
+      row = document.createElement('tr')
       row.setAttribute('data-id', item.id)
 
       row.innerHTML = `
@@ -93,7 +91,7 @@ function populateTable (data, element) {
             <td>
             <div class="d-flex align-items-center">
             <div class="recent-product-img">
-            <img src="assets/images/icons/chair.png" alt="">
+            <img src=${item.event_image} alt="">
             </div>
             <div class="ms-2">
             <h6 class="mb-1 font-14 title-cell">${item.title}</h6>
@@ -196,12 +194,13 @@ function populateSelectCategories (data) {
     selectCategory.appendChild(option)
   })
 }
-
-$(document).on('click', '#submit', function (e) {
+function handleSubmit (e) {
   e.preventDefault()
   const data = getFormData()
+  console.log('test',data);
   sendData(data)
-})
+  
+}
 
 $(document).on('click', '#btn-modifier', function (e) {
   e.preventDefault()
@@ -210,28 +209,29 @@ $(document).on('click', '#btn-modifier', function (e) {
 })
 
 function getFormData () {
-  const formData = {
-    title: document.getElementById('title').value,
-    location: document.getElementById('selectLocation').value,
-    category: document.getElementById('selectCategories').value,
-    start_time: document.getElementById('start_time').value,
-    end_time: document.getElementById('end_time').value,
-    date: document.getElementById('date').value,
-    price: document.getElementById('price').value,
-    event_image: document.getElementById('image').value,
-    description: document.getElementById('description').value
-  }
-
+    let formData = new FormData();
+    formData.append("title", document.getElementById("title").value);
+    formData.append("location", document.getElementById("selectLocation").value);
+    formData.append("category", document.getElementById("selectCategories").value);
+    formData.append("start_time", document.getElementById("start_time").value);
+    formData.append("end_time", document.getElementById("end_time").value);
+    formData.append("date", document.getElementById("date").value);
+    formData.append("price", document.getElementById("price").value);
+    formData.append("description", document.getElementById("description").value);
+    
+    let imageInput = document.getElementById("event_image");
+    if (imageInput.files.length > 0) {
+        formData.append("event_image", imageInput.files[0]); 
+    }
   return formData
 }
 
 async function sendData (data) {
+    console.log(data);
+    
   fetch('/addEvent', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ data })
+    body:  data
   })
     .then(response => response.json())
     .then(result => {
@@ -245,10 +245,7 @@ async function sendData (data) {
 async function updateData (data) {
   fetch(`/updateEvent?id=${eventFind.id}`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ data })
+    body: data
   })
     .then(response => response.json())
     .then(result => {

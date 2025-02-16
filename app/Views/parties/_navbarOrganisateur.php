@@ -1,5 +1,5 @@
 <header>
-			<div class="topbar d-flex align-items-center">
+<div class="topbar d-flex align-items-center">
 				<nav class="gap-3 navbar navbar-expand">
 					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
 					</div>
@@ -580,11 +580,11 @@
 						</ul>
 					</div>
 					<div class="px-3 dropdown user-box">
-						<a class="d-flex align-items-center gap-3 dropdown-toggle dropdown-toggle-nocaret nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<a class="d-flex align-items-center gap-3 dropdown-toggle dropdown-toggle-nocaret" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img src="/assetsOrg/images/avatars/user.jpeg" class="user-img" alt="user avatar">
 							<div class="user-info">
-								<p class="mb-0 user-name">Boukadia</p>
-								<p class="mb-0 designattion">organisateur</p>
+								<p class="mb-0 user-name"><?= $userData['username'] ?></p>
+								<p class="mb-0 designattion"><?= $userData['role'] ?></p>
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">

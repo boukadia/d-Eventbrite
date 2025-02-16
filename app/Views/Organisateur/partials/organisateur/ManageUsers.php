@@ -5,7 +5,7 @@
         <div class="card-body">
             <div class="d-flex justify-between align-items-center">
                 <div>
-                    <h5 class="my-4 text-xl">La liste des Abonnés</h5>
+                    <h5 class="my-4 text-xl">La liste des inscriptions</h5>
                 </div>
 
                 <div class="right-[0.7rem] bottom-[4.2rem] fixed d-flex order-actions bg-white/25 p-2 px-4 pb-2 rounded-xl cursor-pointer" id="toggleBtn">
@@ -18,11 +18,12 @@
                     <thead class="table-light">
                         <tr>
                             <th>Nom</th>
-                            <th>Evenement</th>
-                            <th>Action</th>
+                            <th>Email</th>
+                            <th>Event</th>
+                            <th>Type</th>
                         </tr>
                     </thead>
-                    <tbody id="bodyTableAbonne">
+                    <tbody id="bodyTableAbonnes">
                         
                     </tbody>
                 </table>
@@ -96,4 +97,4 @@
     </div>
 </div>
 
-<script src="../../../../../public/assetsOrg/js/organisateur.js"></script>
+<script src= "/assetsOrg/js/abonnes.js"></script>

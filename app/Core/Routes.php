@@ -42,14 +42,19 @@ class Routes
         if (!is_null($queryString)) {
             parse_str($queryString, $queryParams);
         }
-        
-        $bodyParams = [];
-        if (in_array($method, ['POST', 'PUT'])) {
-            $bodyParams = json_decode(file_get_contents('php://input'), true) ?? [];
-        }
-        
-        $request = array_merge($queryParams, $bodyParams);
 
+        $bodyParams = [];
+        if ($method === 'POST' || $method === 'PUT') {
+            if (!empty($_POST)) {
+                $bodyParams = $_POST; 
+            }
+            if (!empty($_FILES)) {
+                $bodyParams['event_image'] = $_FILES['event_image'];
+            }
+        }
+
+        $request = array_merge($queryParams, $bodyParams);
+        
         
         if (isset($this->routes[$method][$path])) {
             [$class, $method] = $this->routes[$method][$path];

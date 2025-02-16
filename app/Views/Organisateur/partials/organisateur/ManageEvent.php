@@ -31,7 +31,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="recent-product-img">
-                                            <img src="assets/images/icons/chair.png" alt="">
+                                            <!-- <img src="assets/images/icons/chair.png" alt=""> -->
+                                            <img src=<?= $value['event_image'] ?> alt="">
                                         </div>
                                         <div class="ms-2">
                                             <h6 class="mb-1 font-14 title-cell"><?= $value['title'] ?></h6>
@@ -43,7 +44,7 @@
                                     <div class="d-flex align-items-center text-white">
                                         <i
                                             class="me-1 font-18 align-middle bx-rotate-90 bx bx-burst bx-radio-circle-marked"></i>
-                                        <span class="status-cell"><?= $value['status'] ?></span>
+                                        <span class="status-cell"><?= $value['status'] == "pending" ?  "En attente" : $value['status'] ?></span>
                                     </div>
                                 </td>
                                 <td>
@@ -65,7 +66,7 @@
 <div class="hidden top-[50%] left-[50%] z-10 position-fixed bg-gray-700 w-[60%] -translate-x-1/2 -translate-y-1/2 transform card"
     style="" id="addPopup">
     <div class="p-[1.5rem] card-body">
-        <form id="eventForm">
+        <form onsubmit="handleSubmit(event)">
             <div class="row">
                 <div class="mb-2 col-md-4">
                     <label class="form-label">Titre:</label>
@@ -107,7 +108,7 @@
             <div class="row">
                 <div class="mb-2 col-md-12">
                     <label class="form-label">Image :</label>
-                    <input type="file" id="image" class="form-control">
+                    <input type="file" name="event_image" id="event_image" class="form-control">
                 </div>
             </div>
             <div class="form-group">
@@ -117,7 +118,7 @@
             </div>
             <div class="justify-between row">
                 <div class="mt-4 mb-2 col-3 col-md-5">
-                    <button type="button" id="submit" class="px-5 btn btn-light">Ajouter</button>
+                    <button type="submit" id="submit" class="px-5 btn btn-light">Ajouter</button>
                 </div>
                 <div class="mt-4 mb-2 col-3 col-md-5">
                     <button type="button" onclick="cancelPopup()" class="px-5 btn btn-light">annuler</button>

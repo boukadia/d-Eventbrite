@@ -25,11 +25,15 @@ class AuthController {
             if ($user) {
                 $role = $user['role'];
                 $userid = $user['id'];
+                $username = $user['name'];
                 echo $userid;
-                $userData = ['email' => $email, 'role' => $role, 'userid' => $userid];
+                $userData = ['email' => $email, 'role' => $role, 'userid' => $userid, 'username' => $username];
                 $jwt = AuthService::createToken($userData);
     
-                 setcookie("jwt", $jwt, time() + 3600, "/", "", false, true);  
+                 setcookie("jwt", $jwt, time() + 3600, "/", "", false, true); 
+
+                 $userData = AuthService::isAuthenticated();
+
                  if ($role === 'admin') {
                     header("Location: /admin");
                     exit;
@@ -84,6 +88,7 @@ class AuthController {
         if(AuthService::hasRole('organisateur')) {
             $event = new Event();
             $events = $event->getAll();
+            $userData = AuthService::isAuthenticated();
             include __DIR__ . '/../Views/Organisateur/OrgDashboard.php';
         }
         if(AuthService::hasRole('admin')) {

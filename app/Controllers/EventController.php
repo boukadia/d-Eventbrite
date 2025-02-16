@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-use App\Controllers\Controller;
 use App\Core\AuthService;
 use App\Models\Event;
 
@@ -9,67 +8,112 @@ use App\Models\Event;
 class EventController extends Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->model = new Event();
     }
-    public function index() {
+    public function index()
+    {
         $events = $this->model->getAll();
         require __DIR__ . "/../Views/homePage.php";
     }
 
-    public function organisateur(){
+    public function organisateur()
+    {
         $events = $this->model->getAll();
         require __DIR__ . "/../Views/Organisateur/OrgDashboard.php";
     }
 
-    public function create($request){
+    public function create($request)
+    {
 
         $userData = AuthService::isAuthenticated();
-        
-        $request = [
-                'title' => $request['data']['title'],
-                'location' => $request['data']['location'],
-                'date' => $request['data']['date'],
-                'price' => $request['data']['price'],
-                'event_image' => $request['data']['event_image'],
-                'category_id' => $request['data']['category'],
-                'start_time' => $request['data']['start_time'],
-                'end_time' => $request['data']['end_time'],
-                'organizer_id' => $userData['userid'],
-                'description' => $request['data']['description'],
-            ];
-            
-            parent::create($request);
+
+        if (isset($request['event_image'])) {
+            $imagePath = $this->uploadImage($request['event_image']);
+        } else {
+            $imagePath = null;
+        }
+
+        $requestData = [
+            'title' => $request['title'],
+            'location' => $request['location'],
+            'date' => $request['date'],
+            'price' => $request['price'],
+            'event_image' => $imagePath,
+            'category_id' => $request['category'],
+            'start_time' => $request['start_time'],
+            'end_time' => $request['end_time'],
+            'organizer_id' => $userData['userid'],
+            'description' => $request['description'],
+        ];
+
+        parent::create($requestData);
     }
-    
-    public function edite($request) {
+
+    private function uploadImage($file)
+    {
+        $uploadDir = __DIR__ . "/../../public/uploads/";
+
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+        if (!in_array(strtolower($extension), $allowedExtensions)) {
+            return null;
+        }
+
+        $fileName = uniqid('event_', true) . '.' . $extension;
+        $filePath = $uploadDir . $fileName;
+
+        if (move_uploaded_file($file['tmp_name'], $filePath)) {
+            return "uploads/" . $fileName;
+        }
+
+        return null;
+    }
+
+
+    public function edite($request)
+    {
         $id = $request['id'];
         parent::edite($id);
     }
 
-    public function updateEvent($request){
+    public function updateEvent($request)
+    {
 
-       $id = $request['id'];
-        
+        $id = $request['id'];
+
+        if (isset($request['event_image'])) {
+            $imagePath = $this->uploadImage($request['event_image']);
+        } else {
+            $imagePath = null;
+        }
+
         $request = [
-                'title' => $request['data']['title'],
-                'location' => $request['data']['location'],
-                'date' => $request['data']['date'],
-                'price' => $request['data']['price'],
-                'event_image' => $request['data']['event_image'],
-                'category_id' => $request['data']['category'],
-                'start_time' => $request['data']['start_time'],
-                'end_time' => $request['data']['end_time'],
-                'description' => $request['data']['description'],
-            ];
-            
-            parent::update($id, $request);
+            'title' => $request['title'],
+            'location' => $request['location'],
+            'date' => $request['date'],
+            'price' => $request['price'],
+            'event_image' => $imagePath,
+            'category_id' => $request['category'],
+            'start_time' => $request['start_time'],
+            'end_time' => $request['end_time'],
+            'description' => $request['description'],
+        ];
+
+        parent::update($id, $request);
     }
 
-    public function remove($request) {
+    public function remove($request)
+    {
         $id = $request['id'];
         parent::delete($id);
     }
 
- 
+
 }

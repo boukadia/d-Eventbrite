@@ -33,7 +33,7 @@ abstract class Model
     public function create(array $data)
     {
         $columns = implode(', ', array_keys($data));
-        $placeholders = ':' . implode(', :', array_keys($data));
+        $placeholders = ':' . implode(', :', array: array_keys($data));
         $query = "INSERT INTO {$this->table} ($columns) VALUES ($placeholders)";
         $stmt = $this->db->prepare($query);
         return $stmt->execute($data);

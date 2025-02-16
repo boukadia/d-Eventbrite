@@ -16,7 +16,7 @@ class Event extends Model
     }
 
     public function create(array $request)
-    {
+    {   
         try {
             parent::create($request);
 
