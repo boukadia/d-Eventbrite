@@ -26,17 +26,14 @@ class Event extends Model
     public function create(array $request)
     {       
         try {
-            // Start a transaction
-            $this->db->beginTransaction();  
+             $this->db->beginTransaction();  
     
             parent::create($request);
     
-            // Commit transaction if successful
-            $this->db->commit();  
+             $this->db->commit();  
             return true;
         } catch (\Exception $e) {
-            // Check if a transaction is active before rolling back
-            if ($this->db->inTransaction()) {  
+             if ($this->db->inTransaction()) {  
                 $this->db->rollBack();
             }
             throw $e;

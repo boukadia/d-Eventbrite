@@ -33,12 +33,20 @@ class EventController extends Controller
 
     public function eventBooking($request)
     {
+        // var_dump($request);  
+    
+        if (!isset($request['id'])) {
+            die("ID is missing!");
+        }
+    
         $id = $request['id'];
         $userData = $this->useData;
+        // var_dump($userData);
         $events = $this->model->getAll();
+        
         require __DIR__ . "/../Views/event-booking.php";
     }
-
+    
     public function create($request)
     {
 

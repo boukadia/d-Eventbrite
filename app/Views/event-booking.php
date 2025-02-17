@@ -1,7 +1,14 @@
 <?php include __DIR__ . "/parties/_header.php";
-if (!$userData['userid']) {
-  header('Location: /login');
-}
+
+ use App\Core\AuthService;
+ $userRole = AuthService::isAuthenticated();
+//  var_dump($userRole);
+ if (!$userRole === 'admin') {
+     // echo "JWT Cookie not set!";
+     header("Location: /login");
+ }
+ 
+ 
 ?>
 
 <body>
@@ -273,7 +280,7 @@ if (!$userData['userid']) {
             <h4 class="mb-25 sec-title h5">Ticket Buyer</h4>
             <div class="mb-20 row gx-20">
             <!-- <input class="form-control" type="hidden" value="<?=  $id ?>" name="event_id" id="finame">
-            <input class="form-control" type="hidden" value="<?=  $userData['userid'] ?>" name="userid" id="finame"> -->
+            <input class="form-control" type="hidden" value="<?=  $userData['id'] ?>" name="userid" id="finame"> -->
               <div class="form-group col-md-6">
                 <input class="form-control" type="text" value="<?=  $userData['username'] ?>" name="name" id="finame"
                   placeholder="First Name">

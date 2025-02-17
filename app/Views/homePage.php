@@ -1,7 +1,10 @@
-<?php include __DIR__ . "/parties/_header.php" ?>
+<?php 
+session_start();
+include __DIR__ . "/parties/_header.php" 
+
+?>
 
 <?php
-session_start();
 
 if (isset($_SESSION['Paiement']) && $_SESSION['Paiement']) { ?>
   <div class="top-0 z-[100] fixed bg-blue-100 px-4 py-3 border-t border-b border-blue-500 w-full text-blue-7"
@@ -248,6 +251,7 @@ if (isset($_SESSION['Paiement']) && $_SESSION['Paiement']) { ?>
       </div>
     </div> -->
     <?php foreach ($events as $event): ?>
+      <?php print_r($event['id']); ?>
       <div>
 
 
@@ -266,8 +270,8 @@ if (isset($_SESSION['Paiement']) && $_SESSION['Paiement']) { ?>
                     <a href="about.html" class="vs-btn">
                       About Us
                     </a>
-                    <a href="/eventBooking?id=" .<?php $event['id'] ?> class="style3 vs-btn">
-                      Get Started
+                    <a href="/eventBooking?id=<?= $event['id'] ?>" class="style3 vs-btn">
+                    Get Started
                     </a>
                   </div>
                 </div>

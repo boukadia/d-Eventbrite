@@ -20,13 +20,15 @@ class CheckoutController extends Controller
 
     public function createCheckout($request)
     {
+        $eventId = (int) $request['event_id']; 
+        error_log("Event ID: " . $eventId);
 
-        $event = $this->model->find($request['event_id']);
+        $event = $this->model->find($eventId);
         $userData = AuthService::isAuthenticated();
 
         Stripe::setApiKey($this->stripeSecretKey);
         
-        session_start();
+        // session_start();
 
         try {
             $checkout_session = Session::create([

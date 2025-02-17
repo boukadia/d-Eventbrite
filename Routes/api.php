@@ -42,6 +42,7 @@ $router->get('/deleteEvent', [EventController::class, 'remove']);
 $router->get('/editeEvent', [EventController::class, 'edite']);
 $router->post('/updateEvent', [EventController::class, 'updateEvent']);
 $router->get('/eventBooking', [EventController::class, 'eventBooking']);
+// $router->get('/eventBooking/{id}', [EventController::class, 'eventBooking']);
 
 $router->get('/payment', [CheckoutController::class, 'createCheckout']);
 $router->get('/successPayment', [CheckoutController::class, 'successPayment']);
