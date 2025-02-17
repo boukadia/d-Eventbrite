@@ -2,7 +2,8 @@
 
 <?php
 session_start();
-if ($_SESSION['Paiement']) { ?>
+
+if (isset($_SESSION['Paiement']) && $_SESSION['Paiement']) { ?>
   <div class="top-0 z-[100] fixed bg-blue-100 px-4 py-3 border-t border-b border-blue-500 w-full text-blue-7"
     role="alert">
     <p class="font-bold">Success</p>
@@ -12,6 +13,7 @@ if ($_SESSION['Paiement']) { ?>
   $_SESSION['Paiement'] = false;
 }
 ?>
+
 <!--==============================
   Preloader
   ==============================-->
@@ -142,7 +144,7 @@ if ($_SESSION['Paiement']) { ?>
       <div class="recent-post-wrap">
         <div class="recent-post">
           <div class="media-img">
-            <a href="blog-details.html"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/blog/recent-post-1-1.jpg" ?>
+            <a href="blog-details.html"><img src="/assets/img/blog/recent-post-1-1.jpg" >
                 alt="BlogImage"></a>
           </div>
           <div class="media-body">
@@ -158,7 +160,7 @@ if ($_SESSION['Paiement']) { ?>
         </div>
         <div class="recent-post">
           <div class="media-img">
-            <a href="blog-details.html"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/blog/recent-post-1-2.jpg" ?>
+            <a href="blog-details.html"><img src="/assets/img/blog/recent-post-1-2.jpg" >
                 alt="BlogImage"></a>
           </div>
           <div class="media-body">
@@ -174,7 +176,7 @@ if ($_SESSION['Paiement']) { ?>
         </div>
         <div class="recent-post">
           <div class="media-img">
-            <a href="blog-details.html"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/blog/recent-post-1-3.jpg" ?>
+            <a href="blog-details.html"><img src="/assets/img/blog/recent-post-1-3.jpg" >
                 alt="BlogImage"></a>
           </div>
           <div class="media-body">
@@ -190,7 +192,7 @@ if ($_SESSION['Paiement']) { ?>
         </div>
         <div class="recent-post">
           <div class="media-img">
-            <a href="blog-details.html"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/blog/recent-post-1-4.jpg" ?>
+            <a href="blog-details.html"><img src="/assets/img/blog/recent-post-1-4.jpg" >
                 alt="BlogImage"></a>
           </div>
           <div class="media-body">
@@ -220,8 +222,8 @@ if ($_SESSION['Paiement']) { ?>
     <!-- <div>
       <div class="hero-inner style2">
         <div class="overlay"></div>
-        <div class="hero-bg" data-bg-src=<?= $_ENV['PATH_LINK'] . "assets/img/bg/h-2-1-1.jpg" ?>></div>
-        <img src=<?= $_ENV['PATH_LINK'] . "assets/img/shapes/h-1-1.png" ?> alt="shapes" class="hero-shape1">
+        <div class="hero-bg" data-bg-src="/assets/img/bg/h-2-1-1.jpg" ?>></div>
+        <img src="/assets/img/shapes/h-1-1.png" ?> alt="shapes" class="hero-shape1">
         <div class="container">
           <div class="justify-content-between row">
             <div class="mx-auto col-lg-6">
@@ -252,7 +254,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="hero-inner style2">
           <div class="overlay"></div>
           <div class="hero-bg" data-bg-src=<?= $event['event_image'] ?>></div>
-          <img src=<?= $_ENV['PATH_LINK'] . "assets/img/shapes/h-1-1.png" ?> alt="shapes" class="hero-shape1">
+          <img src="/assets/img/shapes/h-1-1.png"  alt="shapes" class="hero-shape1">
           <div class="container">
             <div class="justify-content-between row">
               <div class="mx-auto col-lg-7">
@@ -264,7 +266,7 @@ if ($_SESSION['Paiement']) { ?>
                     <a href="about.html" class="vs-btn">
                       About Us
                     </a>
-                    <a href=<?= "/eventBooking?id=" . $event['id'] ?> class="style3 vs-btn">
+                    <a href="/eventBooking?id=" .<?php $event['id'] ?> class="style3 vs-btn">
                       Get Started
                     </a>
                   </div>
@@ -279,8 +281,8 @@ if ($_SESSION['Paiement']) { ?>
     <!-- <div>
         <div class="hero-inner style2">
           <div class="overlay"></div>
-          <div class="hero-bg" data-bg-src=<?= $_ENV['PATH_LINK'] . "assets/img/bg/h-3-3-3.jpg" ?>></div>
-          <img src=<?= $_ENV['PATH_LINK'] . "assets/img/shapes/h-1-1.png" ?> alt="shapes" class="hero-shape1">
+          <div class="hero-bg" data-bg-src="/assets/img/bg/h-3-3-3.jpg" ?>></div>
+          <img src="/assets/img/shapes/h-1-1.png" ?> alt="shapes" class="hero-shape1">
           <div class="container">
             <div class="justify-content-between row">
               <div class="mx-auto col-lg-7">
@@ -314,27 +316,27 @@ if ($_SESSION['Paiement']) { ?>
 
         <div>
           <div class="mx-5 mt-4 brand-style1">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/brand/b-1-1.png" ?> alt="brand">
+            <img src="/assets/img/brand/b-1-1.png"  alt="brand">
           </div>
         </div>
         <div>
           <div class="mx-5 mt-4 brand-style1">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/brand/b-1-2.png" ?> alt="brand">
+            <img src="/assets/img/brand/b-1-2.png"  alt="brand">
           </div>
         </div>
         <div>
           <div class="mx-5 brand-style1">
-            <img style="height : 6rem" src=<?= $_ENV['PATH_LINK'] . "assets/img/brand/b-1-4.png" ?> alt="brand">
+            <img style="height : 6rem" src="/assets/img/brand/b-1-4.png"  alt="brand">
           </div>
         </div>
         <div>
           <div class="mx-5 mt-4 brand-style1">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/brand/b-1-5.png" ?> alt="brand">
+            <img src="/assets/img/brand/b-1-5.png"  alt="brand">
           </div>
         </div>
         <div>
           <div class="mx-5 mt-4 brand-style1">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/brand/b-1-6.png" ?> alt="brand">
+            <img src="/assets/img/brand/b-1-6.png"  alt="brand">
           </div>
         </div>
 
@@ -439,7 +441,7 @@ if ($_SESSION['Paiement']) { ?>
         <!-- <div class="filter-item Art col-lg-4 col-md-6 Education Sport">
           <div class="event-style1">
             <div class="event-img">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-2.jpg" ?> alt="e 1 1">
+              <img src="/assets/img/events/e-1-2.jpg" ?> alt="e 1 1">
               <div class="event-tags">
                 <a href="event-details.html">Art</a>
               </div>
@@ -473,7 +475,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="filter-item Art col-lg-4 col-md-6 Education More">
           <div class="event-style1">
             <div class="event-img">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-3.jpg" ?> alt="e 1 1">
+              <img src="/assets/img/events/e-1-3.jpg" ?> alt="e 1 1">
               <div class="event-tags">
                 <a href="event-details.html">Education</a>
               </div>
@@ -507,7 +509,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="filter-item Business col-lg-4 col-md-6 Education Education">
           <div class="event-style1">
             <div class="event-img">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-4.jpg" ?> alt="e 1 1">
+              <img src="/assets/img/events/e-1-4.jpg" ?> alt="e 1 1">
               <div class="event-tags">
                 <a href="event-details.html">Education</a>
               </div>
@@ -541,7 +543,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="filter-item Business col-lg-4 col-md-6 More Sport">
           <div class="event-style1">
             <div class="event-img">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-5.jpg" ?> alt="e 1 1">
+              <img src="/assets/img/events/e-1-5.jpg" ?> alt="e 1 1">
               <div class="event-tags">
                 <a href="event-details.html">Sport</a>
               </div>
@@ -575,7 +577,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="filter-item col-lg-4 col-md-6 Festival Sport">
           <div class="event-style1">
             <div class="event-img">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-1-6.jpg" ?> alt="e 1 1">
+              <img src="/assets/img/events/e-1-6.jpg" ?> alt="e 1 1">
               <div class="event-tags">
                 <a href="event-details.html">Festival</a>
               </div>
@@ -627,7 +629,7 @@ if ($_SESSION['Paiement']) { ?>
             <span class="number"><span>5</span>+</span>
             <h3 class="title">Days of Experience</h3>
           </div>
-          <img src=<?= $_ENV['PATH_LINK'] . "assets/img/about/a-full-1.png" ?> alt="about">
+          <img src="/assets/img/about/a-full-1.png" ?> alt="about">
         </div>
       </div>
       <div class="mb-30 col-lg-6">
@@ -666,7 +668,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="col-lg-3 col-md-6">
           <div class="feature-style2">
             <div class="feature-icon">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/f-1-1.svg" ?> alt="feature icon 1">
+              <img src="/assets/img/icons/f-1-1.svg" ?> alt="feature icon 1">
             </div>
             <h3 class="feature-title h5">Friendly Team</h3>
             <p class="feature-text">Bibendum enim facilisis gravida neque convallis a cras. At augue an eget arcu dictum
@@ -676,7 +678,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="col-lg-3 col-md-6">
           <div class="feature-style2">
             <div class="feature-icon">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/f-1-2.svg" ?> alt="feature icon 1">
+              <img src="/assets/img/icons/f-1-2.svg" ?> alt="feature icon 1">
             </div>
             <h3 class="feature-title h5">Brilliant Idea</h3>
             <p class="feature-text">Bibendum enim facilisis gravida neque convallis a cras. At augue an eget arcu dictum
@@ -686,7 +688,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="col-lg-3 col-md-6">
           <div class="feature-style2">
             <div class="feature-icon">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/f-1-3.svg" ?> alt="feature icon 1">
+              <img src="/assets/img/icons/f-1-3.svg" ?> alt="feature icon 1">
             </div>
             <h3 class="feature-title h5">Perfect Work</h3>
             <p class="feature-text">Bibendum enim facilisis gravida neque convallis a cras. At augue an eget arcu dictum
@@ -696,7 +698,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="col-lg-3 col-md-6">
           <div class="feature-style2">
             <div class="feature-icon">
-              <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/f-1-4.svg" ?> alt="feature icon 1">
+              <img src="/assets/img/icons/f-1-4.svg" ?> alt="feature icon 1">
             </div>
             <h3 class="feature-title h5">Support 24/7</h3>
             <p class="feature-text">Bibendum enim facilisis gravida neque convallis a cras. At augue an eget arcu dictum
@@ -726,7 +728,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="event-style2">
           <div class="event-img">
             <div class="overlay"></div>
-            <img class="img" src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-2-1.jpg" ?> alt="e 1 1">
+            <img class="img" src="/assets/img/events/e-2-1.jpg" ?> alt="e 1 1">
             <div class="event-date">
               <span>20</span>
               January
@@ -758,7 +760,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="event-style2">
           <div class="event-img">
             <div class="overlay"></div>
-            <img class="img" src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-2-2.jpg" ?> alt="e 1 1">
+            <img class="img" src="/assets/img/events/e-2-2.jpg" > alt="e 1 1">
             <div class="event-date">
               <span>20</span>
               January
@@ -790,7 +792,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="event-style2">
           <div class="event-img">
             <div class="overlay"></div>
-            <img class="img" src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-2-3.jpg" ?> alt="e 1 1">
+            <img class="img" src="/assets/img/events/e-2-3.jpg" > alt="e 1 1">
             <div class="event-date">
               <span>20</span>
               January
@@ -822,7 +824,7 @@ if ($_SESSION['Paiement']) { ?>
         <div class="event-style2">
           <div class="event-img">
             <div class="overlay"></div>
-            <img class="img" src=<?= $_ENV['PATH_LINK'] . "assets/img/events/e-2-1.jpg" ?> alt="e 1 1">
+            <img class="img" src="/assets/img/events/e-2-1.jpg" > alt="e 1 1">
             <div class="event-date">
               <span>20</span>
               January
@@ -858,13 +860,13 @@ if ($_SESSION['Paiement']) { ?>
 <div class="position-relative">
   <div class="counter-wrap2">
     <div class="overlay"></div>
-    <img class="shape-1" src=<?= $_ENV['PATH_LINK'] . "assets/img/shapes/c-1-1.png" ?> alt="shape1">
-    <img class="shape-2" src=<?= $_ENV['PATH_LINK'] . "assets/img/shapes/c-1-2.png" ?> alt="shape2">
+    <img class="shape-1" src="/assets/img/shapes/c-1-1.png" > alt="shape1">
+    <img class="shape-2" src="/assets/img/shapes/c-1-2.png" > alt="shape2">
     <div class="container fadeInUp wow" data-wow-delay="0.2s">
       <div class="justify-content-between g-4 row">
         <div class="col-6 col-lg-auto">
           <div class="count-start counter-media">
-            <div class="counter-media__icon"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/c-1-1.svg" ?>
+            <div class="counter-media__icon"><img src="/assets/img/icons/c-1-1.svg" >
                 alt="icon"></div>
             <div class="media-body">
               <span class="counter-media__number"><span class="counters" data-counter="858">858</span>+</span>
@@ -874,7 +876,7 @@ if ($_SESSION['Paiement']) { ?>
         </div>
         <div class="col-6 col-lg-auto">
           <div class="count-start counter-media">
-            <div class="counter-media__icon"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/c-1-2.svg" ?>
+            <div class="counter-media__icon"><img src="/assets/img/icons/c-1-2.svg" >
                 alt="icon"></div>
             <div class="media-body">
               <span class="counter-media__number"><span class="counters" data-counter="567">567</span>+</span>
@@ -884,7 +886,7 @@ if ($_SESSION['Paiement']) { ?>
         </div>
         <div class="col-6 col-lg-auto">
           <div class="count-start counter-media">
-            <div class="counter-media__icon"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/c-1-3.svg" ?>
+            <div class="counter-media__icon"><img src="/assets/img/icons/c-1-3.svg" >
                 alt="icon"></div>
             <div class="media-body">
               <span class="counter-media__number"><span class="counters" data-counter="15">15</span>+</span>
@@ -894,7 +896,7 @@ if ($_SESSION['Paiement']) { ?>
         </div>
         <div class="col-6 col-lg-auto">
           <div class="count-start counter-media">
-            <div class="counter-media__icon"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/c-1-4.svg" ?>
+            <div class="counter-media__icon"><img src="/assets/img/icons/c-1-4.svg" >
                 alt="icon"></div>
             <div class="media-body">
               <span class="counter-media__number"><span class="counters" data-counter="30">30</span>+</span>
@@ -927,10 +929,10 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-auto">
         <div class="testi-style1">
           <div class="testi-icon">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/t-1-1.svg" ?> alt="testi icon">
+            <img src="/assets/img/icons/t-1-1.svg" ?> alt="testi icon">
           </div>
           <div class="testi-author">
-            <div class="author-img"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/user/user-img-1-1.jpg" ?>
+            <div class="author-img"><img src="/assets/img/user/user-img-1-1.jpg" ?>
                 alt="Testimonial"></div>
             <div class="media-body">
               <h3 class="testi-name">Rivanur R. Rafi</h3>
@@ -952,10 +954,10 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-auto">
         <div class="testi-style1">
           <div class="testi-icon">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/t-1-1.svg" ?> alt="testi icon">
+            <img src="/assets/img/icons/t-1-1.svg" ?> alt="testi icon">
           </div>
           <div class="testi-author">
-            <div class="author-img"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/user/user-img-1-4.jpg" ?>
+            <div class="author-img"><img src="/assets/img/user/user-img-1-4.jpg" ?>
                 alt="Testimonial"></div>
             <div class="media-body">
               <h3 class="testi-name">Ute Kirsch</h3>
@@ -977,10 +979,10 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-auto">
         <div class="testi-style1">
           <div class="testi-icon">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/t-1-1.svg" ?> alt="testi icon">
+            <img src="/assets/img/icons/t-1-1.svg" ?> alt="testi icon">
           </div>
           <div class="testi-author">
-            <div class="author-img"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/user/user-img-1-3.jpg" ?>
+            <div class="author-img"><img src="/assets/img/user/user-img-1-3.jpg" ?>
                 alt="Testimonial"></div>
             <div class="media-body">
               <h3 class="testi-name">Jan Mehler</h3>
@@ -1002,10 +1004,10 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-auto">
         <div class="testi-style1">
           <div class="testi-icon">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/t-1-1.svg" ?> alt="testi icon">
+            <img src="/assets/img/icons/t-1-1.svg" ?> alt="testi icon">
           </div>
           <div class="testi-author">
-            <div class="author-img"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/user/user-img-1-2.jpg" ?>
+            <div class="author-img"><img src="/assets/img/user/user-img-1-2.jpg" ?>
                 alt="Testimonial"></div>
             <div class="media-body">
               <h3 class="testi-name">Tom Bauer</h3>
@@ -1027,10 +1029,10 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-auto">
         <div class="testi-style1">
           <div class="testi-icon">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/t-1-1.svg" ?> alt="testi icon">
+            <img src="/assets/img/icons/t-1-1.svg" ?> alt="testi icon">
           </div>
           <div class="testi-author">
-            <div class="author-img"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/user/user-img-1-1.jpg" ?>
+            <div class="author-img"><img src="/assets/img/user/user-img-1-1.jpg" ?>
                 alt="Testimonial"></div>
             <div class="media-body">
               <h3 class="testi-name">Matthias Nacht</h3>
@@ -1052,10 +1054,10 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-auto">
         <div class="testi-style1">
           <div class="testi-icon">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/icons/t-1-1.svg" ?> alt="testi icon">
+            <img src="/assets/img/icons/t-1-1.svg" ?> alt="testi icon">
           </div>
           <div class="testi-author">
-            <div class="author-img"><img src=<?= $_ENV['PATH_LINK'] . "assets/img/user/user-img-1-2.jpg" ?>
+            <div class="author-img"><img src="/assets/img/user/user-img-1-2.jpg" ?>
                 alt="Testimonial"></div>
             <div class="media-body">
               <h3 class="testi-name">Daniel Bar</h3>
@@ -1103,7 +1105,7 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-lg-4">
         <div class="team-style1">
           <div class="team-img">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/team/team-1-1.jpg" ?> alt="team image">
+            <img src="/assets/img/team/team-1-1.jpg" ?> alt="team image">
           </div>
           <div class="team-body">
             <div class="team-content">
@@ -1145,7 +1147,7 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-lg-4">
         <div class="team-style1">
           <div class="team-img">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/team/team-1-2.jpg" ?> alt="team image">
+            <img src="/assets/img/team/team-1-2.jpg" ?> alt="team image">
           </div>
           <div class="team-body">
             <div class="team-content">
@@ -1187,7 +1189,7 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-lg-4">
         <div class="team-style1">
           <div class="team-img">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/team/team-1-3.jpg" ?> alt="team image">
+            <img src="/assets/img/team/team-1-3.jpg" ?> alt="team image">
           </div>
           <div class="team-body">
             <div class="team-content">
@@ -1229,7 +1231,7 @@ if ($_SESSION['Paiement']) { ?>
       <div class="col-lg-4">
         <div class="team-style1">
           <div class="team-img">
-            <img src=<?= $_ENV['PATH_LINK'] . "assets/img/team/team-1-4.jpg" ?> alt="team image">
+            <img src="/assets/img/team/team-1-4.jpg" ?> alt="team image">
           </div>
           <div class="team-body">
             <div class="team-content">
