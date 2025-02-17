@@ -39,18 +39,19 @@
 <!-- Bootstrap -->
 <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
 <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-<link rel="stylesheet" href="/assets/css/bootstrap.min.css" >
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 <!-- Fontawesome Icon -->
-<link rel="stylesheet" href="/assets/css/fontawesome.min.css" >
+<link rel="stylesheet" href="/assets/css/fontawesome.min.css">
 
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="/assets/css/magnific-popup.min.css" >
+<link rel="stylesheet" href="/assets/css/magnific-popup.min.css">
 <!-- Slick Slider -->
-<link rel="stylesheet" href="/assets/css/slick.min.css" >
+<link rel="stylesheet" href="/assets/css/slick.min.css">
 <!-- Custom Phone Number Input -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.7.3/build/css/intlTelInput.css">
 <!-- Theme Custom CSS -->
-<link rel="stylesheet"
-  href="/assets/css/style.css" >
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+
 
 <body>

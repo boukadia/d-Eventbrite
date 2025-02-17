@@ -38,11 +38,8 @@
                         <div class="menu-all-pages-container">
                             <ul class="menu">
                                 <li><a href="about.html">About Us <span></span></a></li>
-                                <li><a href="about.html">Our Mission <span></span></a></li>
-                                <li><a href="service.html">Our Services <span></span></a></li>
-                                <li><a href="service.html">Our Project <span></span></a></li>
-                                <li><a href="team.html">Our Team <span></span></a></li>
-                                <li><a href="blog.html">Blog Post <span></span></a></li>
+                                <li><a href="blog.html">Home page <span></span></a></li>
+                                <li><a href="blog.html">Evenements <span></span></a></li>
                                 <li><a href="contact.html">Contact Us <span></span></a></li>
                             </ul>
                         </div>
@@ -53,11 +50,7 @@
                         <h3 class="widget_title">Explore<img src="/assets/img/shapes/d-1-1.svg"></h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="about.html">What We Offer <span></span></a></li>
-                                <li><a href="about.html">Our Story <span></span></a></li>
-                                <li><a href="blog.html">Latest Post <span></span></a></li>
-                                <li><a href="contact.html">Help Center <span></span></a></li>
-                                <li><a href="about.html">Terms & Condition <span></span></a></li>
+                            <li><a href="about.html">About Us <span></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -93,8 +86,7 @@
                             </div>
                             <div class="media-body">
                                 <div class="footer-info_link">
-                                    12/7 new town, 245x Town 1214
-                                    Street, United State
+                                YouCode school, Youssoufia
                                 </div>
                             </div>
                         </div>

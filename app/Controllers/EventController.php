@@ -2,20 +2,26 @@
 
 namespace App\Controllers;
 use App\Core\AuthService;
+use App\Models\Category;
 use App\Models\Event;
 use App\Models\NotificationModel;
- 
+
 class EventController extends Controller
 {
-public $notificationModel;
-public $AuthService;
-    public function __construct() {
+    public $notificationModel;
+    public $AuthService;
+    public $useData;
+    public function __construct()
+    {
         $this->model = new Event();
         $this->notificationModel = new NotificationModel();
+        $this->useData = AuthService::isAuthenticated();
     }
     public function index()
     {
         $events = $this->model->getAll();
+        $catgory = new Category();
+        $catgories = $catgory->all();
         require __DIR__ . "/../Views/homePage.php";
     }
 
@@ -25,10 +31,18 @@ public $AuthService;
         require __DIR__ . "/../Views/Organisateur/OrgDashboard.php";
     }
 
+    public function eventBooking($request)
+    {
+        $id = $request['id'];
+        $userData = $this->useData;
+        $events = $this->model->getAll();
+        require __DIR__ . "/../Views/event-booking.php";
+    }
+
     public function create($request)
     {
 
-        $userData = AuthService::isAuthenticated();
+        $userData = $this->useData;
 
         if (isset($request['event_image'])) {
             $imagePath = $this->uploadImage($request['event_image']);

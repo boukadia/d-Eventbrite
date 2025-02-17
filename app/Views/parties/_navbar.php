@@ -51,7 +51,7 @@
             </div>
             <div class="col-auto">
               <div class="d-xl-inline-flex d-none">
-                <a href="about.html" class="vs-btn" tabindex="0">
+                <a href="/eventBooking" class="vs-btn" tabindex="0">
                   Make An Appointment
                 </a>
               </div>
@@ -71,75 +71,16 @@
                 <div class="col">
                   <nav class="d-lg-block d-none main-menu menu-style2">
                     <ul>
-                      <li class="menu-item-has-children">
-                        <a href="javascript:void(0);">Home</a>
-                        <ul class="sub-menu">
-                          <li><a href="index.html">Home 1</a></li>
-                          <li><a href="index-2.html">Home 2</a></li>
-                          <li><a href="index-3.html">Home 3</a></li>
-                        </ul>
+                    <li>
+                        <a href="/">Home</a>
                       </li>
                       <li>
                         <a href="about.html">About Us</a>
                       </li>
-                      <li class="menu-item-has-children">
-                        <a href="javascript:void(0);">Service</a>
-                        <ul class="sub-menu">
-                          <li><a href="service.html">Service</a></li>
-                          <li><a href="service-details.html">Service Details</a></li>
-                        </ul>
+                      <li>
+                        <a href="about.html">Evenementes</a>
                       </li>
-                      <li class="menu-item-has-children">
-                        <a href="javascript:void(0);">Blog</a>
-                        <ul class="sub-menu">
-                          <li><a href="blog.html">Blog</a></li>
-                          <li><a href="blog-grid.html">Blog Grid</a></li>
-                          <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
-                          <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                      </li>
-                      <li class="menu-item-has-children mega-menu-wrap">
-                        <a href="javascript:void(0);">Pages</a>
-                        <ul class="mega-menu">
-                          <li><a href="shop.html">Page List 1</a>
-                            <ul>
-                              <li><a href="index.html">Home 1</a></li>
-                              <li><a href="index-2.html">Home 1</a></li>
-                              <li><a href="index-3.html">Home 1</a></li>
-                              <li><a href="about.html">About Us</a></li>
-                              <li><a href="service.html">Service</a></li>
-                              <li><a href="service-details.html">Service Details</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="javascript:void(0);">Page List 2</a>
-                            <ul>
-                              <li><a href="team.html">Team</a></li>
-                              <li><a href="blog.html">Blog</a></li>
-                              <li><a href="blog-grid.html">Blog Grid</a></li>
-                              <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
-                              <li><a href="blog-details.html">Blog Details</a></li>
-                              <li><a href="event-booking.html">Event Booking</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="javascript:void(0);">Page List 3</a>
-                            <ul>
-                              <li><a href="events-grid.html">Events Grid</a></li>
-                              <li><a href="events-grid-2.html">Events Grid Two</a></li>
-                              <li><a href="event-details.html">Event Details</a></li>
-                              <li><a href="plan.html">Event Plan</a></li>
-                              <li><a href="login.html">Login</a></li>
-                              <li><a href="register.html">Register</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="javascript:void(0);">Page List 4</a>
-                            <ul>
-                              <li><a href="coming-soon.html">Coming Soon</a></li>
-                              <li><a href="404.html">Error Page</a></li>
-                              <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
+                      </li> 
                       <li>
                         <a href="contact.html">Contact</a>
                       </li>
