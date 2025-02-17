@@ -26,6 +26,12 @@ $userRole = AuthService::isAuthenticated();
 		<li class="menu-label">UI Elements</li>
 
 		<?php if ($userRole['role'] === 'admin') {?>
+			<li>
+			<a href="#" class="nav-link" data-page="ManageEvent">Gestion des événements</a>
+		</li>
+		<li>
+			<a href="#" class="nav-link" data-page="ManageUsers">Gestion des utilisateurs</a>
+		</li>
             <li> 
                 <a href="#" class="nav-link" data-page="Statics">Statistics</a>
             </li>

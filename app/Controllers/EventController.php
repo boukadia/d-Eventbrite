@@ -49,7 +49,24 @@ public $AuthService;
             'description' => $request['description'],
         ];
 
-        parent::create($requestData);
+               $organizerName = $userData['username'];
+            
+
+            $adminID = $this->notificationModel->getAdminId();
+            $message = "Organizer $organizerName has created a new event: ";
+
+           $this->notificationModel->createNotification($adminID, $message);
+
+            parent::create($requestData);
+
+           
+            // if ($this->notificationModel->createNotification($admin, "New event created")) {
+            //    echo "Success";
+            // }
+            // else {
+            //     echo "Error";
+            // }
+            // echo json_encode($res);
     }
 
     private function uploadImage($file)

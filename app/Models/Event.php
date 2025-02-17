@@ -23,17 +23,25 @@ class Event extends Model
         $stmt = $this->db->query($query);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-
     public function create(array $request)
     {       
         try {
+            // Start a transaction
+            $this->db->beginTransaction();  
+    
             parent::create($request);
-
+    
+            // Commit transaction if successful
+            $this->db->commit();  
             return true;
         } catch (\Exception $e) {
-            $this->db->rollBack();
+            // Check if a transaction is active before rolling back
+            if ($this->db->inTransaction()) {  
+                $this->db->rollBack();
+            }
             throw $e;
         }
     }
+    
 
 }
