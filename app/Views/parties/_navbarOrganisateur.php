@@ -28,7 +28,7 @@ $userData = AuthService::isAuthenticated();
 							 
 							 
 <!-- notifications -->
-							<li class="dropdown dropdown-large nav-item">
+							<li class="dropdown dropdown-large">
 								<a class="position-relative dropdown-toggle dropdown-toggle-nocaret nav-link" href="#" data-bs-toggle="dropdown"  ><span class="alert-count" id="notif-count">7</span>
 									<i class='bx bx-bell'></i>
 								</a>

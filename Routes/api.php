@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\CheckoutController;
 use App\Controllers\StatistiqueController;
 use App\Core\Routes;
 use App\Controllers\EventController;
@@ -11,7 +12,6 @@ use App\Controllers\UserController;
 use App\Controllers\StaticsController;
 use App\Controllers\EventAdminController;
 use App\Controllers\NotificationsController;
-use App\Models\AdminEventModel;
 
 
 $router = new Routes();
@@ -41,6 +41,10 @@ $router->post('/addEvent', [EventController::class, 'create']);
 $router->get('/deleteEvent', [EventController::class, 'remove']);
 $router->get('/editeEvent', [EventController::class, 'edite']);
 $router->post('/updateEvent', [EventController::class, 'updateEvent']);
+$router->get('/eventBooking', [EventController::class, 'eventBooking']);
+
+$router->get('/payment', [CheckoutController::class, 'createCheckout']);
+$router->get('/successPayment', [CheckoutController::class, 'successPayment']);
 
 $router->get('/villes', [VilleController::class, 'getAll']);
 $router->get('/categories', [CategoryController::class, 'getAll']);
@@ -74,4 +78,5 @@ $router->get('/ajax/load_page', [AjaxController::class, 'loadPage']);
 
 return $router;
 
+ 
  
